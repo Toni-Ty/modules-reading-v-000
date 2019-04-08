@@ -1,15 +1,15 @@
-require_relative './class_methods_module.rb'
 require_relative './dance_module.rb'
+require_relative './class_methods_module.rb'
 require_relative './fancy_dance.rb'
 
 class Dancer
-  extend FancyDance::ClassMethods #:: This syntax references the parent and child relationship of the nested modules.
+  # include Dance
+  # extend MetaDancing
   include FancyDance::InstanceMethods
-end
+  extend FancyDance::ClassMethods
+  attr_accessor :name
 
-attr_accessor :name
-
-def initialize(name)
-  @name = name
+  def initialize(name)
+    @name = name
   end
 end
